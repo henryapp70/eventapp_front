@@ -11,6 +11,7 @@ export default {
       colors: {
         base: "#2C3E50",
         deco: "#FFA500",
+        button1: "#28888C",
       },
       fontFamily: {
         jomhuria: ["jomhuria-regular-webfont", "sans-serif"],
