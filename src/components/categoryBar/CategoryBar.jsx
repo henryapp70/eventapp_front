@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const CategoryBar = () => {
   return (
     <>
-      <div className="flex gap-3 justify-center text-3xl bg-deco py-4 font-semibold mt-5">
+      <div className="flex gap-3 justify-center text-3xl bg-deco py-4 font-semibold mt-5 font-jomhuria">
         <Link to="#">
           <h3 className="border-r-4 border-black px-2">CONCIERTOS</h3>
         </Link>
