@@ -1,6 +1,6 @@
-import CreateNewEvent from "./components/forms/createEvent/CreateNewEvent";
 import NavBar from "./components/navBar/NavBar";
 import Home from "./views/Home/Home";
+import NewEvent from "./views/NewEvents/NewEvent";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/crear-evento" element={<CreateNewEvent />} />
+        <Route path="/crear-evento" element={<NewEvent />} />
       </Routes>
     </div>
   );

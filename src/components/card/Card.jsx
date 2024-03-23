@@ -5,8 +5,9 @@ import comments from "../../assets/icons/comments.svg";
 import eye from "../../assets/icons/closedEye.svg";
 
 const Card = ({
+  id_event,
   name,
-  img,
+  image,
   city,
   description,
   startDate,
@@ -35,7 +36,7 @@ const Card = ({
               <span className="mt-1 font-extrabold">{city}</span>
             </h3>
             <img
-              src={img}
+              src={image}
               width={400}
               height={400}
               className="p-2 relative z-0"
