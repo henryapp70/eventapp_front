@@ -5,6 +5,7 @@ import CategoryBar from "../../components/categoryBar/CategoryBar";
 import allMonths from "../../utils/months.json";
 import allCities from "../../utils/cities.json";
 import CardList from "../../components/cardList/CardList";
+
 const Home = () => {
   return (
     <>

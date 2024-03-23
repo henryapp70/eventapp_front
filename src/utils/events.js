@@ -1,5 +1,6 @@
 export const events = [
   {
+    id_event: 1,
     name: "Tech Conference 2024",
     description:
       "Annual technology conference showcasing the latest innovations.",
