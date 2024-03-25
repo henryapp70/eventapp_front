@@ -5,6 +5,7 @@ import CategoryBar from "../../components/categoryBar/CategoryBar";
 import allMonths from "../../utils/months.json";
 import allCities from "../../utils/cities.json";
 import CardList from "../../components/cardList/CardList";
+import Carousel from "../../components/carousel/Carousel";
 
 const Home = () => {
   return (
@@ -20,7 +21,7 @@ const Home = () => {
         </Link>
       </div>
       <CategoryBar />
-
+      <Carousel />
       {/* //Acá son los botones de filtrado */}
 
       <div className="flex mx-10 my-10 gap-5 text-xl">

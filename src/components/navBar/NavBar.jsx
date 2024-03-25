@@ -1,10 +1,14 @@
+import { Link } from "react-router-dom";
+
 const NavBar = () => {
   return (
     <div className="flex justify-between gap-10 bg-base text-xl h-16 items-center font-jomhuria">
       <div className="bg-gradient-to-r from-teal-600 to-black h-16 pr-2">
-        <h2 className="text-white border-r-4 border-white pr-3 cursor-pointer my-4 mx-3">
-          INICIO
-        </h2>
+        <Link to="/">
+          <h2 className="text-white border-r-4 border-white pr-3 cursor-pointer my-4 mx-3">
+            INICIO
+          </h2>
+        </Link>
       </div>
       <div className="flex items-center">
         <h1 className="text-deco text-4xl font-bold font-jomhuria mb-2">
