@@ -1,12 +1,19 @@
 import { events } from "../../utils/events";
 import { useGetAllEvents } from "../../hooks/useEvents";
 import Card from "../card/Card";
+
 const CardList = () => {
   const { data, isLoading } = useGetAllEvents();
 
-  if (isLoading) return <div>Cargando...</div>;
+  if (isLoading)
+    return (
+      <div className="text-deco text-center font-bold text-4xl">
+        Cargando...
+      </div>
+    );
+
   console.log(data);
-  events;
+
   return (
     <>
       <section className="flex flex-wrap justify-start mx-24">

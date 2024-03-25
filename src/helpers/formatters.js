@@ -23,6 +23,7 @@ export function formatDate(dateString) {
 }
 
 export function formatHour(hourString) {
+  if (!hourString) return "";
   const hour = parseInt(hourString.split(":")[0]);
   const formattedHour = hour < 10 ? hourString[1] : hourString.split(":")[0];
   const formattedTime = formattedHour + " hrs.";
