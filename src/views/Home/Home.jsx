@@ -6,8 +6,14 @@ import allMonths from "../../utils/months.json";
 import allCities from "../../utils/cities.json";
 import CardList from "../../components/cardList/CardList";
 import Carousel from "../../components/carousel/Carousel";
+import Paginate from "../../components/pagination/Paginate";
+import { useState } from "react";
 
 const Home = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const eventsPerPage = 2;
+  const totalEvents = 4;
+
   return (
     <>
       <div className="flex justify-between items-center mt-5 mx-10 p-5">
@@ -41,12 +47,19 @@ const Home = () => {
             ))}
           </select>
         </div>
+        <div className="w-full flex justify-center">
+          <Paginate
+            currentPage={currentPage}
+            totalPages={Math.ceil(totalEvents / eventsPerPage)}
+            setCurrentPage={setCurrentPage}
+          />
+        </div>
       </div>
 
       {/* Aquí vienen las Cards */}
 
       <div>
-        <CardList />
+        <CardList currentPage={currentPage} totalEvents={totalEvents} />
       </div>
     </>
   );

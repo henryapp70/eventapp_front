@@ -17,6 +17,7 @@ const Card = ({
   endHour,
   eventType,
   location,
+  category,
 }) => {
   //Formateando fechas
   const formattedStartDate = formatDate(startDate);
@@ -44,7 +45,7 @@ const Card = ({
 
             <div className="text-center text-xl font-semibold p-2">
               <p>
-                {name} <span className="text-deco">/ {eventType}</span>
+                {name} <span className="text-deco">/ {category}</span>
               </p>
               <div>
                 <p>{location}</p>
