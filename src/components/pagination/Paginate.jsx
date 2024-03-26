@@ -19,7 +19,7 @@ const Paginate = ({ currentPage, totalPages, setCurrentPage }) => {
             ? "bg-gray-300 text-gray-400 py-2 px-4 font-bold cursor-not-allowed"
             : "bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4"
         } rounded-r`}
-        onClick={handleNextClick}
+        onClick={handlePrevClick}
       >
         Prev
       </button>
