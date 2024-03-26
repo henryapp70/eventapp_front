@@ -1,9 +1,13 @@
-import { events } from "../../utils/events";
-import { useGetAllEvents } from "../../hooks/useEvents";
+import { useGetEventsByPage } from "../../hooks/useEvents";
 import Card from "../card/Card";
 
-const CardList = () => {
-  const { data, isLoading } = useGetAllEvents();
+const CardList = ({ currentPage, totalEvents }) => {
+  const eventsPerPage = 2;
+  const { data, isLoading, error } = useGetEventsByPage(
+    currentPage,
+    eventsPerPage,
+    totalEvents
+  );
 
   if (isLoading)
     return (
@@ -11,13 +15,17 @@ const CardList = () => {
         Cargando...
       </div>
     );
-
-  console.log(data);
+  if (error)
+    return (
+      <div className="text-red-500 text-center font-bold text-4xl">
+        Error al cargar los eventos
+      </div>
+    );
 
   return (
     <>
       <section className="flex flex-wrap justify-start mx-24">
-        <div className="grid grid-cols-2 gap-16">
+        <div className="grid grid-cols-3 gap-16">
           {data.map((event) => (
             <Card
               key={event.id_event}
@@ -31,6 +39,7 @@ const CardList = () => {
               startDate={event.start_date}
               endDate={event.end_date}
               startHour={event.start_hour}
+              category={event.category}
             />
           ))}
         </div>
