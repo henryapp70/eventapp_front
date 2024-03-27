@@ -1,3 +1,5 @@
+import arrowLeft from "../../assets/icons/arrowLeft.svg";
+import arrowRight from "../../assets/icons/arrowRight.svg";
 const Paginate = ({ currentPage, totalPages, setCurrentPage }) => {
   const handlePrevClick = () => {
     if (currentPage > 1) {
@@ -16,12 +18,12 @@ const Paginate = ({ currentPage, totalPages, setCurrentPage }) => {
       <button
         className={`${
           currentPage === 1
-            ? "bg-gray-300 text-gray-400 py-2 px-4 font-bold cursor-not-allowed"
-            : "bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4"
-        } rounded-r`}
+            ? "bg-gray-50 text-gray-400 py-2 px-4 font-bold cursor-not-allowed"
+            : "bg-zinc-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4"
+        } `}
         onClick={handlePrevClick}
       >
-        Prev
+        <img src={arrowLeft} alt="Arrow Left" />
       </button>
       {/* //Crear el array y obtener los numeros del array con keys */}
       {[...Array(totalPages).keys()].map((num) => (
@@ -40,12 +42,12 @@ const Paginate = ({ currentPage, totalPages, setCurrentPage }) => {
       <button
         className={`${
           currentPage === totalPages
-            ? "bg-gray-300 text-gray-400 py-2 px-4 font-bold cursor-not-allowed"
-            : "bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4"
-        } rounded-r`}
+            ? "bg-gray-50 text-gray-400 py-2 px-4 font-bold cursor-not-allowed"
+            : "bg-zinc-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4"
+        } `}
         onClick={handleNextClick}
       >
-        Next
+        <img src={arrowRight} alt="Arrow Right" />
       </button>
     </div>
   );
