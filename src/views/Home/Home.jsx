@@ -11,8 +11,8 @@ import { useState } from "react";
 
 const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const eventsPerPage = 2;
-  const totalEvents = 4;
+  const eventsPerPage = 3;
+  const totalEvents = 12; //En mi base de datos son 12.
 
   return (
     <>

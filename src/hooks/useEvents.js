@@ -2,6 +2,19 @@ import api from "../api/events";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 
+//Filtros:
+export const getEventsByCategory = async (criterion, filter) => {
+  const { data } = await api.get(
+    `/getallevents?criterion=${criterion}&filter=${filter}`
+  );
+  return data;
+};
+export const useGetEventsByCategory = (criterion, filter) => {
+  return useQuery({
+    queryKey: ["categories", criterion, filter],
+    queryFn: () => getEventsByCategory(criterion, filter),
+  });
+};
 // Función para obtener los eventos de acuerdo a la página
 const getEventsByPage = async (page, eventsPerPage, totalEvents) => {
   const from = (page - 1) * eventsPerPage + 1;

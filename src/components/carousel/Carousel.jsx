@@ -2,7 +2,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import { AdvancedImage } from "@cloudinary/react";
 import {
-  // imgFive,
+  imgEight,
+  imgFive,
   imgFour,
   imgOne,
   imgSeven,
@@ -18,10 +19,7 @@ import "swiper/css/scrollbar";
 
 const Carousel = () => {
   return (
-    <div
-      className="mt-10"
-      style={{ display: "flex", justifyContent: "center" }}
-    >
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <div
         className="swiper-container custom-swiper-container"
         style={{
@@ -62,20 +60,23 @@ const Carousel = () => {
           <SwiperSlide>
             <AdvancedImage cldImg={imgFour} />
           </SwiperSlide>
-          {/* <SwiperSlide>
+          <SwiperSlide>
             <AdvancedImage cldImg={imgFive} />
-          </SwiperSlide> */}
+          </SwiperSlide>
           <SwiperSlide>
             <AdvancedImage cldImg={imgSix} />
           </SwiperSlide>
           <SwiperSlide>
             <AdvancedImage cldImg={imgSeven} />
           </SwiperSlide>
+          <SwiperSlide>
+            <AdvancedImage cldImg={imgEight} />
+          </SwiperSlide>
         </Swiper>
 
         {/* Flecha izquierda y derecha */}
-        <div className="swiper-button-prev swiper-button-prev-custom text-black font-extrabold bg-white px-6 rounded-full"></div>
-        <div className="swiper-button-next swiper-button-next-custom text-black font-extrabold bg-white px-6 rounded-full"></div>
+        <div className="swiper-button-prev swiper-button-prev-custom text-deco font-extrabold  px-6 rounded-full"></div>
+        <div className="swiper-button-next swiper-button-next-custom text-deco font-extrabold  px-6 rounded-full"></div>
         <div className="swiper-pagination"></div>
       </div>
     </div>
