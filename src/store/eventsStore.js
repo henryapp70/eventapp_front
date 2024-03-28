@@ -1,7 +1,6 @@
 import { create } from "zustand";
 
-export const useEventsStore = create((set) => ({
-  filterByCategory: [],
-  //Actualizar el estado con la info de react-query
-  setCategory: (data) => set({ filterByCategory: data }),
+export const useStore = create((set) => ({
+  originalEvents: [], // Estado para almacenar los eventos originales
+  setOriginalEvents: (originalEvents) => set({ originalEvents }), // Función para establecer los eventos
 }));

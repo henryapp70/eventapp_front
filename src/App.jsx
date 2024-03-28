@@ -3,6 +3,7 @@ import Home from "./views/Home/Home";
 import NewEvent from "./views/NewEvents/NewEvent";
 import { Route, Routes } from "react-router-dom";
 import EventDetail from "./views/detail/EventDetail";
+import { Toaster } from "sonner";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/evento/:id" element={<EventDetail />} />
         <Route path="/crear-evento" element={<NewEvent />} />
       </Routes>
+      <Toaster richColors position="top-right" />
     </div>
   );
 }

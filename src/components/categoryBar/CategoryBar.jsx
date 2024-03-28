@@ -1,52 +1,62 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { AdvancedImage } from "@cloudinary/react";
+import {
+  artImg,
+  fairImg,
+  foodImg,
+  musicImg,
+  sportImg,
+  techImg,
+} from "../../configs/cloudinary";
 
 const CategoryBar = () => {
   return (
     <>
-      <div className="flex gap-3 justify-center text-2xl bg-deco py-4 font-semibold mt-5 font-jomhuria">
+      <h1 className="mx-40 my-10 w-3/12 px-10 font-extrabold text-3xl">
+        EXPLORE CATEGORIES
+      </h1>
+      <div className="flex justify-center gap-16 my-5">
         <Link to="#">
-          <h3 className="border-r-4 border-black px-2 hover:text-gray-100">
-            CONCIERTOS
-          </h3>
+          <div className="flex flex-col items-center gap-3">
+            <AdvancedImage cldImg={musicImg} />
+            <h3 className="text-center">MUSIC</h3>
+          </div>
         </Link>
+
         <Link to="#">
-          <h3 className="border-r-4 border-black px-2 hover:text-gray-100">
-            DEPORTES
-          </h3>
+          <div className="flex flex-col items-center gap-3">
+            <AdvancedImage cldImg={sportImg} />
+            <h3 className="text-center">SPORTS</h3>
+          </div>
         </Link>
+
         <Link to="#">
-          <h3 className="border-r-4 border-black px-2 hover:text-gray-100">
-            TEATRO
-          </h3>
+          <div className="flex flex-col items-center gap-3">
+            <AdvancedImage cldImg={fairImg} />
+            <h3 className="text-center">FAIR</h3>
+          </div>
         </Link>
+
         <Link to="#">
-          <h3 className="border-r-4 border-black px-2 hover:text-gray-100">
-            ENTRETENIMIENTO
-          </h3>
+          <div className="flex flex-col items-center gap-3">
+            <AdvancedImage cldImg={techImg} />
+            <h3 className="text-center">TECHNOLOGY</h3>
+          </div>
         </Link>
+
         <Link to="#">
-          <h3 className="border-r-4 border-black px-2 hover:text-gray-100">
-            INFANTILES
-          </h3>
+          <div className="flex flex-col items-center gap-3">
+            <AdvancedImage cldImg={artImg} />
+            <h1 className="text-center"> CULTURAL & ARTS</h1>
+          </div>
         </Link>
-        {/* <Link to="#">
-          <h3 className="border-r-4 border-black px-2 hover:text-gray-100">
-            CURSOS
-          </h3>
-        </Link> */}
+
         <Link to="#">
-          <h3 className="border-r-4 border-black px-2 hover:text-gray-100">
-            LITERATURA
-          </h3>
-        </Link>
-        <Link to="#">
-          <h3 className="border-r-4 border-black px-2 hover:text-gray-100">
-            SEMINARIOS
-          </h3>
-        </Link>
-        <Link to="#">
-          <h3 className="hover:text-gray-100">OTROS</h3>
+          <div className="flex flex-col items-center  gap-3">
+            <AdvancedImage cldImg={foodImg} />
+            <h3 className="text-center">FOOD</h3>
+          </div>
         </Link>
       </div>
     </>
