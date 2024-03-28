@@ -1,28 +1,76 @@
 import { useState } from "react";
 import search from "../../assets/icons/searchIcon.svg";
-import { getEventsByCategory } from "../../hooks/useEvents";
-import { useEventsStore } from "../../store/eventsStore";
+import { useAllEvents } from "../../hooks/useEvents";
+import { toast } from "sonner";
 
-const SearchBar = () => {
-  //Estado local y manejo del inputs
+const SearchBar = ({ setFilteredEvents, resetEvents }) => {
+  //Estado local y manejo del input
   const [input, setInput] = useState("");
-  //Guardar en el Estado de Zustand
-  const setCategory = useEventsStore((state) => state.setCategory);
 
   const handleChange = (event) => {
     setInput(event.target.value);
   };
-  //Manejo del envío
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const events = await getEventsByCategory("category", input);
-      console.log("Eventos encontrados:", events);
-      setCategory(events);
-    } catch (error) {
-      console.error("Error al buscar eventos:", error);
-    }
+
+  const { data } = useAllEvents();
+
+  //Filtro por Ciudad
+  const filterByCity = (city) => {
+    if (!city) return events;
+    return data.filter((event) =>
+      event.city.toLowerCase().includes(city.toLowerCase())
+    );
   };
+
+  // Filtro por Categoría
+  const filterByCategory = (category) => {
+    if (!category) return events;
+    return data.filter((event) =>
+      event.category.toLowerCase().includes(category.toLowerCase())
+    );
+  };
+  //Filtra por Ubicación
+  const filterByLocation = (location) => {
+    if (!location) return events;
+    return data.filter((event) =>
+      event.location.toLowerCase().includes(location.toLowerCase())
+    );
+  };
+  //Filtra por nombre del evento
+  const filterByName = (name) => {
+    if (!name) return events;
+    return data.filter((event) =>
+      event.name.toLowerCase().includes(name.toLowerCase())
+    );
+  };
+  const handleResetEvents = () => {
+    resetEvents(); // Llamar a la función para restablecer los eventos originales
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const filteredByCity = filterByCity(input);
+    const filteredByCategory = filterByCategory(input);
+    const fiteredByLocation = filterByLocation(input);
+    const filteredByname = filterByName(input);
+    const filteredResults = [
+      ...new Set([
+        ...filteredByCity,
+        ...filteredByCategory,
+        ...fiteredByLocation,
+        ...filteredByname,
+      ]),
+    ];
+
+    console.log("Resultados filtrados:", filteredResults);
+
+    if (filteredResults.length === 0) {
+      toast.error("No se encontraron eventos que coincidan con la búsqueda");
+    } else {
+      setFilteredEvents(filteredResults);
+    }
+    setInput("");
+  };
+  //Restablecer todos los eventos con paginado
 
   return (
     <>
@@ -32,7 +80,7 @@ const SearchBar = () => {
             className="rounded-full border-none focus:outline-none pl-4 pr-12 pt-1 pb-1 w-full bg-transparent"
             type="text"
             value={input}
-            placeholder="Busca por evento o lugar..."
+            placeholder="Search by city, category or location..."
             onChange={handleChange}
           />
           <button type="submit">
@@ -44,6 +92,7 @@ const SearchBar = () => {
           </button>
         </div>
       </form>
+      <button onClick={handleResetEvents}>Reset</button>
     </>
   );
 };
